@@ -50,6 +50,10 @@ $config = [
             ],
         ],
         */
+        'myComponent' => [
+            'class' => 'app\classes\components\MyComponent',
+            'string' => 'Hello component'
+        ]
     ],
     'params' => $params,
 ];

@@ -1,10 +1,13 @@
 <?php
 
-use app\models\Pessoas;
-use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\grid\ActionColumn;
+use yii\helpers\Html;
 use yii\grid\GridView;
+use app\models\Pessoas;
+use yii\grid\ActionColumn;
+use app\classes\widgets\HelloWidget;
+use app\classes\widgets\HelloBeginEndWidget;
+use app\classes\widgets\HelloRenderWidget;
 
 /** @var yii\web\View $this */
 /** @var app\models\PessoasSearch $searchModel */
@@ -20,6 +23,27 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Pessoas', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+
+    <?= HelloWidget::widget([
+        'message' => 'Olá teste',
+        'submessage' => 'batata'
+    ])?>
+    <hr>
+
+
+    <?php HelloBeginEndWidget::begin([
+        'encode' => false
+    ])?>
+     <h1>teste</h1>
+    <?php HelloBeginEndWidget::end()?>
+
+    <hr>
+        <?php HelloRenderWidget::widget([
+            'message' => 'nome'
+        ])?>
+    <hr>
+
+
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 

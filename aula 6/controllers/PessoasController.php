@@ -7,6 +7,7 @@ use app\models\PessoasSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use Yii;
 
 /**
  * PessoaController implements the CRUD actions for Pessoas model.
@@ -40,6 +41,13 @@ class PessoasController extends Controller
     {
         $searchModel = new PessoasSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
+
+
+        // testando o componente.
+        // $myComponent = Yii::$app->myComponent;
+        // $myComponent->printString();
+        // die;
+
 
         return $this->render('index', [
             'searchModel' => $searchModel,
